@@ -1,0 +1,328 @@
+/* =============================================
+   MUZO MARKET — main.css
+   Global reset, variables, typography, utilities
+   ============================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+/* ---- CSS Variables ---- */
+:root {
+  --color-bg:        #0A0A0A;
+  --color-bg-2:      #111111;
+  --color-bg-3:      #1a1a1a;
+  --color-black:     #000000;
+  --color-gold:      #F2B84B;
+  --color-gold-dark: #e0a738;
+  --color-gold-deep: #d4962d;
+  --color-white:     #ffffff;
+  --color-gray-1:    #9ca3af;
+  --color-gray-2:    #6b7280;
+  --color-gray-3:    #374151;
+  --color-gray-4:    #1f2937;
+  --color-border:    #222222;
+  --color-border-gold: rgba(242, 184, 75, 0.2);
+  --color-border-gold-hover: rgba(242, 184, 75, 0.35);
+  --color-gold-glow: rgba(242, 184, 75, 0.1);
+
+  --font-main: 'Inter', sans-serif;
+
+  --radius-sm:  6px;
+  --radius-md:  8px;
+  --radius-lg:  12px;
+  --radius-xl:  16px;
+  --radius-2xl: 20px;
+
+  --shadow-gold: 0 0 20px rgba(242, 184, 75, 0.12);
+  --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.4);
+
+  --transition: 0.2s ease;
+  --transition-slow: 0.35s ease;
+
+  --max-width: 1400px;
+  --section-px: 40px;
+  --header-h: 80px;
+}
+
+/* ---- Reset ---- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-main);
+  background-color: var(--color-bg);
+  color: var(--color-white);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+button {
+  font-family: var(--font-main);
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+
+input, textarea {
+  font-family: var(--font-main);
+  outline: none;
+  border: none;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+/* ---- Layout utilities ---- */
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--section-px);
+}
+
+.section {
+  padding: 80px var(--section-px);
+}
+
+.section--sm {
+  padding: 60px var(--section-px);
+}
+
+.section--dark {
+  background-color: var(--color-bg);
+}
+
+.section--darker {
+  background-color: var(--color-black);
+}
+
+.section--card {
+  background-color: var(--color-bg-2);
+}
+
+/* ---- Typography ---- */
+.section-title {
+  font-size: 30px;
+  font-weight: 600;
+  color: var(--color-white);
+  margin-bottom: 12px;
+}
+
+.section-subtitle {
+  font-size: 15px;
+  color: var(--color-gray-1);
+  margin-bottom: 40px;
+}
+
+.section-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--color-gold);
+  font-size: 13px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 14px;
+}
+
+.section-label svg {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+/* ---- Buttons ---- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 28px;
+  border-radius: var(--radius-md);
+  font-size: 15px;
+  font-weight: 500;
+  transition: background var(--transition), color var(--transition), border-color var(--transition), transform var(--transition);
+}
+
+.btn:active { transform: scale(0.97); }
+
+.btn-primary {
+  background: var(--color-gold);
+  color: var(--color-black);
+}
+.btn-primary:hover { background: var(--color-gold-dark); }
+
+.btn-secondary {
+  background: transparent;
+  color: var(--color-gold);
+  border: 1px solid var(--color-gold);
+}
+.btn-secondary:hover { background: var(--color-gold-glow); }
+
+.btn-dark {
+  background: var(--color-black);
+  color: var(--color-white);
+}
+.btn-dark:hover { background: #111; }
+
+.btn-lg {
+  padding: 16px 40px;
+  font-size: 17px;
+}
+
+.btn-sm {
+  padding: 8px 18px;
+  font-size: 13px;
+}
+
+/* ---- Badge ---- */
+.badge {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.badge-gold {
+  background: var(--color-gold);
+  color: var(--color-black);
+}
+
+/* ---- Divider ---- */
+.divider {
+  height: 1px;
+  background: var(--color-gray-4);
+  margin: 0 var(--section-px);
+}
+
+/* ---- Stars ---- */
+.stars {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.stars svg {
+  width: 14px;
+  height: 14px;
+}
+
+.star-on  { fill: var(--color-gold); color: var(--color-gold); }
+.star-off { fill: var(--color-gray-3); color: var(--color-gray-3); }
+
+.stars-count {
+  font-size: 12px;
+  color: var(--color-gray-2);
+  margin-left: 4px;
+}
+
+/* ---- Page hero (inner pages) ---- */
+.page-hero {
+  padding: calc(var(--header-h) + 60px) var(--section-px) 60px;
+  background: linear-gradient(to bottom, #0A0A0A, #0B1A2B);
+  text-align: center;
+}
+
+.page-hero h1 {
+  font-size: 42px;
+  font-weight: 700;
+  margin-bottom: 14px;
+}
+
+.page-hero p {
+  font-size: 18px;
+  color: var(--color-gray-1);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* ---- Breadcrumb ---- */
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--color-gray-2);
+  padding: 16px var(--section-px);
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.breadcrumb a { color: var(--color-gray-2); transition: color var(--transition); }
+.breadcrumb a:hover { color: var(--color-gold); }
+.breadcrumb .sep { color: var(--color-gray-3); }
+.breadcrumb .current { color: var(--color-white); }
+
+/* ---- Scrollbar ---- */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--color-bg); }
+::-webkit-scrollbar-thumb { background: var(--color-gray-4); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--color-gold); }
+
+/* ---- Selection ---- */
+::selection { background: var(--color-gold); color: var(--color-black); }
+
+/* ---- Notification toast ---- */
+.toast {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: var(--color-gold);
+  color: var(--color-black);
+  padding: 14px 24px;
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  font-size: 14px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.5);
+  z-index: 9999;
+  transform: translateY(100px);
+  opacity: 0;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.toast.show {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* ---- Empty state ---- */
+.empty-state {
+  text-align: center;
+  padding: 80px 20px;
+  color: var(--color-gray-2);
+}
+
+.empty-state svg {
+  width: 60px;
+  height: 60px;
+  margin: 0 auto 20px;
+  color: var(--color-gray-3);
+}
+
+.empty-state h3 {
+  font-size: 20px;
+  color: var(--color-white);
+  margin-bottom: 10px;
+}
